@@ -1,9 +1,9 @@
 <?php 
 
     # NOM DU SERVEUR
-    $sName = "127.0.0.1:8889";
+    $sName = "127.0.0.1";
     # NOM D'UTILISATEUR
-    $uName = "valentin";
+    $uName = "Valentin";
     # MOT DE PASSE
     $pass = "kilabilon";
     # NOM DE LA BASE

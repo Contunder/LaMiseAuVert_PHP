@@ -23,7 +23,11 @@ if (isset($_SESSION['Email'])) {
          foreach ($utilisateur as $utilisateur) {
          	if ($utilisateur['Id'] == $_SESSION['Id']) continue;
        ?>
-       <li class="list-group-item">
+                 <head>
+                     <meta charset="utf-8">
+                 </head>
+
+             <li class="list-group-item">
 			<div class="d-flex align-items-center">
                 <ul>
                     <b><u>Utilisateur</u></b>

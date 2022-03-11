@@ -73,7 +73,7 @@ if(isset($_POST['Adresse']) &&
        $stmt->closeCursor();
 
        // ON HASH LE MOT DE PASSE
-       $password = password_hash($password, PASSWORD_DEFAULT);
+       $password = hash('sha512', $password);
 
        # CREE UN NOUVELLE UTILISATEUR AVEC UNE IMAGE PAR DEFAUT
        $sql = "CALL addProprietaire(?,?,?,?,?)";

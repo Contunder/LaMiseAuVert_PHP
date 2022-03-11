@@ -2,10 +2,7 @@
 
 function getPrix($ville, $gardiennage, $conn) {
 
-    $sql = "SELECT * FROM Prix
-        INNER JOIN Pension ON Prix.PensionId = Pension.Id
-        INNER JOIN TypeGardiennage ON Prix.TypeGardiennageId = TypeGardiennage.Id
-        WHERE Pension.Ville=? AND TypeGardiennage.Libelle = ?";
+    $sql = "CALL getPrix(?,?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$ville, $gardiennage]);
     if ($stmt->rowCount() < 1) {

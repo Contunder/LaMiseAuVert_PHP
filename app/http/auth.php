@@ -40,7 +40,7 @@ if(isset($_POST['Email']) &&
               $role = getRole($user['Id'], $conn);
 
                # VERIFIER LE MOT DE PASSE ENCRYPTER
-              if (password_verify($password, $role['Password'])) {
+              if (hash('sha512', $password) == $role['Password']) {
 
                     # CONNECTION REUSSI / CREE LA SESSION
                     $_SESSION['Email'] = $user['Email'];
