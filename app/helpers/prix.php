@@ -2,7 +2,7 @@
 
 function getPrix($ville, $gardiennage, $conn) {
 
-    $sql = "CALL getPrix(?,?)";
+    $sql = "CALL getPrix(?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$ville, $gardiennage]);
     if ($stmt->rowCount() < 1) {

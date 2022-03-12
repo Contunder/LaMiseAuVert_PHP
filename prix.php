@@ -76,11 +76,9 @@ session_start();
                         <?php if (isset($_GET['pen'])) {
                             include 'app/db_conn.php';
                             include 'app/helpers/prix.php';
-                            $prixPension = getPrix($_GET['pen'], "Pension Féline" ,$conn);
+                            $prixPension = getPrix($_GET['pen'], "Pension Feline" ,$conn);
                             $prixCamping = getPrix($_GET['pen'], "Camping Canin" ,$conn);
-                            $prixHotel = getPrix($_GET['pen'], "Hôtel Canin" ,$conn);
-
-                            echo var_dump($prixHotel);
+                            $prixHotel = getPrix($_GET['pen'], "Hotel Canin" ,$conn);
                         }
                             else{ $prixPension =''; } ?>
                         <?php if ($prixPension !== '') { ?>
