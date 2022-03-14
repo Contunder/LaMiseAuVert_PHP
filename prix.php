@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['Email'])) {
+
+}else{ $pension = '';
+    $_SESSION['Role'] = '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
