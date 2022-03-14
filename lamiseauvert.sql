@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : ven. 11 mars 2022 à 12:31
+-- Généré le : lun. 14 mars 2022 à 15:28
 -- Version du serveur : 5.7.34
 -- Version de PHP : 8.0.8
 
@@ -110,9 +110,21 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `getPension` (IN `paramVille` VARCHA
     WHERE Ville= paramVille;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getPrix` (IN `paramVille` VARCHAR(255), IN `paramLibelle` VARCHAR(255))  BEGIN
+	SELECT Prix.Id, Prix.Tarif, Prix.PensionId, Prix.TypeGardiennageId FROM Prix
+	INNER JOIN Pension ON Prix.PensionId = Pension.Id
+	INNER JOIN TypeGardiennage ON Prix.TypeGardiennageId = TypeGardiennage.Id
+	WHERE Pension.Ville=paramVille AND TypeGardiennage.Libelle = paramLibelle;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getRole` (IN `paramId` INT)  BEGIN
     SELECT * FROM Utilisateur
     WHERE ProprietaireId=paramId;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getRoleByPassword` (IN `paramPassword` VARCHAR(255), IN `paramPension` INT)  BEGIN
+	SELECT * FROM Utilisateur
+    WHERE Password = paramPassword AND ProprietaireId = paramPension;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getSearch` (IN `paramKey` VARCHAR(255))  BEGIN
@@ -388,9 +400,9 @@ CREATE TABLE `Utilisateur` (
 --
 
 INSERT INTO `Utilisateur` (`Id`, `ProprietaireId`, `Password`, `Role`) VALUES
-(1, 9, '$2y$10$G6dvbiryZeCLgSR10WHd/.AeHFI/jcUrB7IYc83GRPRY/B7.WkIK6', 'ADMIN'),
-(2, 10, '$2y$10$Iy/G5TJF7s3QNa0ReCq/Yew50RTvP1wRtbCvo0VGf2q4jDWRk96P6', 'Lambertsart'),
-(3, 11, '$2y$10$maMgylQGX3WKuJu4qDdjj.gdRAipUR/jwU4bpuNbDrL3n23Zg4YpG', 'USER');
+(1, 9, '6c89030400dbcd6561f8e03c8ccbeff4d8150988e635af53a581622da3223e37a64abb3f26a1cff7f0014c32e4ca615e76534fb53830e54c67603b892124c8d1', 'ADMIN'),
+(2, 10, '6c89030400dbcd6561f8e03c8ccbeff4d8150988e635af53a581622da3223e37a64abb3f26a1cff7f0014c32e4ca615e76534fb53830e54c67603b892124c8d1', 'Lambertsart'),
+(3, 11, '6c89030400dbcd6561f8e03c8ccbeff4d8150988e635af53a581622da3223e37a64abb3f26a1cff7f0014c32e4ca615e76534fb53830e54c67603b892124c8d1', 'USER');
 
 --
 -- Index pour les tables déchargées
