@@ -112,7 +112,7 @@ if (isset($_SESSION['Email'])) {
 
                             <div class="read-more">
                                 <a href="prix.php?pen=<?= $pen['Ville'] ?>">Prix</a>
-                                <a href="reserver.php?pen=<?= $pen['Ville'] ?>">Réserver</a>
+                                <!--<a href="reserver.php?pen=<?= $pen['Ville'] ?>">Réserver</a>-->
                             </div>
                         </div>
 
@@ -158,7 +158,7 @@ if (isset($_SESSION['Email'])) {
 
                             <div class="read-more">
                                 <a href="prix.php?pen=<?= $pen['Ville'] ?>">Prix</a>
-                                <a href="reserver.php?pen=<?= $pen['Ville'] ?>">Réserver</a>
+                                <!--<a href="reserver.php?pen=<?= $pen['Ville'] ?>">Réserver</a>-->
                             </div>
                         </div>
 
