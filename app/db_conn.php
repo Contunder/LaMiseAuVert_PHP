@@ -1,13 +1,13 @@
 <?php 
 
     # NOM DU SERVEUR
-    $sName = "127.0.0.1:8889";
+    $sName = "localhost";
     # NOM D'UTILISATEUR
-    $uName = "valentin";
+    $uName = "prof1234";
     # MOT DE PASSE
-    $pass = "kilabilon";
+    $pass = "prof_1234!";
     # NOM DE LA BASE
-    $db_name = "lamiseauvert";
+    $db_name = "LaMiseAuVert";
 
     #CONNECTION A LA BASE DE DONNÉES
     try {
