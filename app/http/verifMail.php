@@ -7,24 +7,24 @@ if (isset($_GET['id'])) {
     include '../db_conn.php';
 
     # RECUPERER LA REQUETE POST
-    $animalId = $_GET['id'];
+    $proprietaireId = $_GET['id'];
 
 
     # VALIDATION
-    if (empty($animalId)) {
+    if (empty($proprietaireId)) {
         # MESSAGE ERREUR + REDIRECTION
         $em = "Il manque des informations";
         header("Location: ../../account.php?erreur=$em");
         exit;
     } else {
         # VERIFIER DANS LA BASE SI L'ESPECE EXISTE
-        $sql = "CALL deleteAnimal(?)";
+        $sql = "CALL verifMail(?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$animalId]);
+        $stmt->execute([$proprietaireId]);
         $stmt->closeCursor();
 
         # MESSAGE DE REUSSITE + REDIRECTION
-        $sm = "Animale supprimer";
+        $sm = "Email verifier";
         header("Location: ../../account.php?success=$sm");
 
     }

@@ -17,11 +17,7 @@ if(isset($_POST['Adresse']) &&
     $adresse = $_POST['Adresse'];
     $telephone = $_POST['Telephone'];
     $email = $_POST['Email'];
-    if (isset($_POST['Pension'])){
-        $role = $_POST['Pension'];
-    }else {
-        $role = 'USER';
-    }
+    $id = $_POST['UserId'];
 
     # CREE UN FORMAT URL
     $data = 'nom='.$nom.'&prenom='.$prenom;
@@ -29,54 +25,40 @@ if(isset($_POST['Adresse']) &&
     # VALIDATION
     if (empty($nom)) {
         # MESSAGE ERREUR + REDIRECTION
-        $em = "Un Nom est required";
+        $em = "Un Nom est requis";
         header("Location: ../../account.php?erreur=$em");
         exit;
     }else if(empty($prenom)){
         # MESSAGE ERREUR + REDIRECTION
-        $em = "Un Prénom est required";
+        $em = "Un Prénom est requis";
         header("Location: ../../account.php?erreur=$em&$data");
         exit;
     }else if(empty($adresse)){
         # MESSAGE ERREUR + REDIRECTION
-        $em = "Une adresse est required";
+        $em = "Une adresse est requis";
         header("Location: ../../account.php?erreur=$em&$data");
         exit;
     }else if(empty($telephone)){
         # MESSAGE ERREUR + REDIRECTION
-        $em = "Un numéro de téléphone est required";
+        $em = "Un numéro de téléphone est requis";
         header("Location: ../../account.php?erreur=$em&$data");
         exit;
     }else if(empty($email)){
         # MESSAGE ERREUR + REDIRECTION
-        $em = "Un Email est required";
+        $em = "Un Email est requis";
         header("Location: ../../account.php?erreur=$em&$data");
         exit;
     }else {
 
         # CREE UN NOUVELLE UTILISATEUR AVEC UNE IMAGE PAR DEFAUT
-        $sql = "CALL updateProprietaire(?,?,?,?,?)";
+        $sql = "CALL updateProprietaire(?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$nom, $prenom, $adresse, $telephone, $email]);
+        $stmt->execute([$nom, $prenom, $adresse, $telephone, $email, $id]);
         $stmt->closeCursor();
 
-        $user = getUtilisateur($email, $conn);
-
-        # CREE UN NOUVELLE UTILISATEUR AVEC UNE IMAGE PAR DEFAUT
-        $sql = "CALL updateUser(?,?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$user['Id'], $role]);
-        $stmt->closeCursor();
-
-        if (isset($_POST['Pension'])){
-            # MESSAGE DE REUSSITE + REDIRECTION
-            $sm = "Compte modifier";
-            header("Location: ../../account_pen.php?success=$sm");
-        }else {
-            # MESSAGE DE REUSSITE + REDIRECTION
-            $sm = "Compte modifier";
-            header("Location: ../../account.php?success=$sm");
-        }
+        # MESSAGE DE REUSSITE + REDIRECTION
+        $sm = "Compte modifier";
+        header("Location: ../../account.php?success=$sm");
 
 
     }

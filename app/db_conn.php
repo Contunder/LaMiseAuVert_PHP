@@ -7,7 +7,7 @@
     # MOT DE PASSE
     $pass = "prof_1234!";
     # NOM DE LA BASE
-    $db_name = "LaMiseAuVert";
+    $db_name = "lamiseauvert";
 
     #CONNECTION A LA BASE DE DONNÉES
     try {

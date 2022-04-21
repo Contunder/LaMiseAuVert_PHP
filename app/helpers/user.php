@@ -31,4 +31,20 @@ function getRole($userId, $conn){
     }
 }
 
+function getCopropiete($conn){
+    $sql = "CALL selectcopropriete()";
+    $stmt =  $conn->prepare($sql);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 1) {
+        $copropriete = $stmt->fetchAll();
+        $stmt->closeCursor();
+        return $copropriete;
+    }else {
+        $copropriete = [];
+        return $coproprieter;
+    }
+}
+
+
 

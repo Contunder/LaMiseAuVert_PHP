@@ -14,8 +14,10 @@ if ($pension != '' && $_SESSION['Role'] === $pension['Ville']){
 
 if (isset($_SESSION['Email'])) {
 
+    include 'app/helpers/user.php';
     include 'app/helpers/animal.php';
 
+    $user = getUtilisateur($_SESSION['Email'], $conn);
     $animals = getMyAnimal($_SESSION['Id'], $conn);
     $chiens = getAllDogEspece($conn);
     $chats = getAllCatEspece($conn);
@@ -145,6 +147,7 @@ if (isset($_SESSION['Email'])) {
                             <div class="tab-pane active show" id="tab-1">
                                 <div class="row">
                                     <div class="col-lg-8 details order-2 order-lg-1">
+                                        <form method="post" action="app/update/user.php">
                                         <h3>Mes Informations</h3>
                                         <?php if (isset($_GET['error'])) { ?>
                                             <div class="alert alert-warning" role="alert">
@@ -158,13 +161,14 @@ if (isset($_SESSION['Email'])) {
                                                 <?php echo htmlspecialchars($_GET['success']); ?>
                                             </div>
                                         <?php } ?>
+                                            <input type="number" name="UserId" value="<?= $user['Id'] ?>" style="visibility: hidden;">
                                         <div class="mb-3">
                                             <label class="form-label" for="Nom">
                                                 Nom</label>
                                             <input type="text"
                                                    name="Nom"
                                                    id="Nom"
-                                                   value="<?= $_SESSION['Nom'] ?>"
+                                                   value="<?= $user['Nom'] ?>"
                                                    class="form-control">
                                         </div>
 
@@ -174,7 +178,7 @@ if (isset($_SESSION['Email'])) {
                                             <input type="text"
                                                    name="Prenom"
                                                    id="Prenom"
-                                                   value="<?= $_SESSION['Prenom'] ?>"
+                                                   value="<?= $user['Prenom'] ?>"
                                                    class="form-control">
                                         </div>
 
@@ -184,7 +188,7 @@ if (isset($_SESSION['Email'])) {
                                             <input type="text"
                                                    class="form-control"
                                                    id="Adresse"
-                                                   value="<?= $_SESSION['Adresse'] ?>"
+                                                   value="<?= $user['Adresse'] ?>"
                                                    name="Adresse">
                                         </div>
 
@@ -194,7 +198,7 @@ if (isset($_SESSION['Email'])) {
                                             <input type="text"
                                                    class="form-control"
                                                    id="Telephone"
-                                                   value="<?= $_SESSION['Telephone'] ?>"
+                                                   value="<?= $user['Telephone'] ?>"
                                                    name="Telephone">
                                         </div>
 
@@ -204,10 +208,13 @@ if (isset($_SESSION['Email'])) {
                                             <input type="email"
                                                    name="Email"
                                                    id="Email"
-                                                   value="<?= $_SESSION['Email'] ?>"
+                                                   value="<?= $user['Email'] ?>"
                                                    class="form-control">
                                         </div>
 
+                                            <input type="submit" value="Modifier" class="btn btn-light">
+
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -252,6 +259,7 @@ if (isset($_SESSION['Email'])) {
                                                 </div>
 
                                                 <button type="submit" class="btn btn-primary">Modifier</button>
+                                                <a href="app/delete/animal.php?id=<?=$animal['Id']?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
                                             </form><br>
                                         <?php } } ?>
                                         <h3>Nouvelle Animal</h3>
