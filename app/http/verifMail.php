@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
         exit;
     } else {
         # VERIFIER DANS LA BASE SI L'ESPECE EXISTE
-        $sql = "CALL verifMail(?)";
+        $sql = "CALL verifEmail(?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$proprietaireId]);
         $stmt->closeCursor();

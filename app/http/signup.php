@@ -88,6 +88,15 @@ if(isset($_POST['Adresse']) &&
        $stmt->execute([$user['Id'], $password, $role]);
        $stmt->closeCursor();
 
+       $to      = $email;
+       $subject = 'Verification de votre Email';
+       $message = 'Pour verifier votre adresse Email <a href="172.29.106.49/app/http/verifMail.php?id='.$user['Id'].'">Cliquer ici</a>';
+       $headers = array(
+           'From' => 'no_reply@lamiseauvert.fr'
+       );
+
+       mail($to, $subject, $message, $headers);
+
        if (isset($_POST['Pension'])){
            # MESSAGE DE REUSSITE + REDIRECTION
            $sm = "Nouveau Compte Cree";
