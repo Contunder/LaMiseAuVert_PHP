@@ -263,7 +263,7 @@ if (isset($_SESSION['Email'])) {
                                             </form><br>
                                         <?php } } ?>
                                         <h3>Nouvelle Animal</h3>
-                                            <form method="post" action="app/http/add_animal.php" >
+                                            <form method="post" action="app/create/animal.php" >
 
                                                 <?php if (isset($_GET['erreur'])) { ?>
                                                     <div class="alert alert-warning" role="alert">

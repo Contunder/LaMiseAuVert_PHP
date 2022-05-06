@@ -3,7 +3,7 @@
         <div class="col-lg-8 details order-2 order-lg-1">
             <h3>Mon Animal</h3>
             <?php if ($animal != []) { ?>
-                <form method="post" action="app/http/add_animal.php">
+                <form method="post" action="app/create/animal.php">
 
                     <?php if (isset($_GET['erreur'])) { ?>
                         <div class="alert alert-warning" role="alert">
@@ -40,7 +40,7 @@
                     <!--<button type="submit" class="btn btn-primary">Ajouter</button>-->
                 </form><br>
             <?php } else { ?>
-                <form method="post" action="app/http/add_animal.php" >
+                <form method="post" action="app/create/animal.php" >
 
                     <?php if (isset($_GET['erreur'])) { ?>
                         <div class="alert alert-warning" role="alert">

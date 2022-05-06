@@ -229,7 +229,7 @@ if ($_SESSION['Role'] === $pension['Ville']) {
                                                 <a href="app/delete/animal.php?id=<?=$animal['Id']?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
                                             </form><br>
                                         <?php } } ?>
-                                            <form method="post" action="app/http/add_animal.php">
+                                            <form method="post" action="app/create/animal.php">
 
                                                 <?php if (isset($_GET['erreur'])) { ?>
                                                     <div class="alert alert-warning" role="alert">

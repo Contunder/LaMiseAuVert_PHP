@@ -231,7 +231,7 @@ if ($_SESSION['Role'] === 'ADMIN') {
                                             </form><br>
 
                                                                             <?php } }  ?>
-                                            <form method="post" action="app/http/add_animal.php" >
+                                            <form method="post" action="app/create/animal.php" >
 
                                                 <?php if (isset($_GET['erreur'])) { ?>
                                                     <div class="alert alert-warning" role="alert">
