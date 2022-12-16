@@ -28,16 +28,16 @@
                 <li class="dropdown active"><a href="#"><span>Prix</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="prix.php?pen=Lambertsart">Lambertsart</a></li>
-                        <li><a href="prix.php?pen=1">Vincennes</a></li>
-                        <li><a href="prix.php?pen=1">Les Echets</a></li>
-                        <li><a href="prix.php?pen=1">Saran</a></li>
-                        <li><a href="prix.php?pen=1">Coulmiers</a></li>
-                        <li><a href="prix.php?pen=1">Norges la ville</a></li>
-                        <li><a href="prix.php?pen=1">Landujan</a></li>
-                        <li><a href="prix.php?pen=1">Ormes</a></li>
-                        <li><a href="prix.php?pen=1">Lezoux</a></li>
-                        <li><a href="prix.php?pen=1">Vabres l’Abbaye</a></li>
-                        <li><a href="prix.php?pen=1">Saint Sauveur</a></li>
+                        <li><a href="prix.php?pen=Vincennes">Vincennes</a></li>
+                        <li><a href="prix.php?pen=Les Echets">Les Echets</a></li>
+                        <li><a href="prix.php?pen=Saran">Saran</a></li>
+                        <li><a href="prix.php?pen=Coulomiers">Coulmiers</a></li>
+                        <li><a href="prix.php?pen=Norges la ville">Norges la ville</a></li>
+                        <li><a href="prix.php?pen=Landujan">Landujan</a></li>
+                        <li><a href="prix.php?pen=Ormes">Ormes</a></li>
+                        <li><a href="prix.php?pen=Lezoux">Lezoux</a></li>
+                        <li><a href="prix.php?pen=Vabres l'Abbaye">Vabres l’Abbaye</a></li>
+                        <li><a href="prix.php?pen=Saint Sauveur">Saint Sauveur</a></li>
 
                     </ul>
                 </li>

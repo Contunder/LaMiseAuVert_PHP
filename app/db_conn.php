@@ -1,11 +1,11 @@
 <?php 
 
     # NOM DU SERVEUR
-    $sName = "localhost";
+    $sName = "127.0.0.1:8889";
     # NOM D'UTILISATEUR
-    $uName = "prof1234";
+    $uName = "valentin";
     # MOT DE PASSE
-    $pass = "prof_1234!";
+    $pass = "kilabilon";
     # NOM DE LA BASE
     $db_name = "lamiseauvert";
 
